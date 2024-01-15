@@ -1,8 +1,11 @@
 import React from 'react'
+import MainStopwatch from './MainStopwatch';
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <>
+        <MainStopwatch/>
+    </>
   )
 }
 

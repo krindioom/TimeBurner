@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { stopwatchState } from "../recoil/atoms/StopwatchState";
 
 const MainStopwatch = () => {
-  return (
-    <div>MainStopwatch</div>
-  )
-}
+    const [stopwatchValue, setStopwatchValue] = useRecoilState(stopwatchState);
 
-export default MainStopwatch
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setStopwatchValue((current) => current + 1);
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, [setStopwatchValue]);
+
+    return <div>{stopwatchValue}</div>;
+};
+
+export default MainStopwatch;
