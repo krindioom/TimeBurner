@@ -1,0 +1,9 @@
+.stopwatch{
+    color: #A4161A;
+    font-size: 150px;
+}
+
+.stopwatch_container{
+    width: fit-content;
+    background: #000;
+}

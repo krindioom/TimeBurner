@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { stopwatchState } from "../recoil/atoms/StopwatchState";
+import MainStyle from '../styles/main.module.css'
 
 const MainStopwatch = () => {
     const [stopwatchValue, setStopwatchValue] = useRecoilState(stopwatchState);
@@ -13,7 +14,7 @@ const MainStopwatch = () => {
         return () => clearInterval(intervalId);
     }, [setStopwatchValue]);
 
-    return <div>{stopwatchValue}</div>;
+    return <span className={MainStyle.stopwatch}>{stopwatchValue}</span>;
 };
 
 export default MainStopwatch;
