@@ -7,10 +7,8 @@ export const categoryFilter = selector({
     get: ({ get }) => {
         const curentCategory = get(curentProductCategoryState);
         const products = get(productsState);
-        return () => {
-            products.filter((item) => {
-                return item.category === curentCategory;
-            });
-        };
+        return products.filter((item) => {
+            return item.category === curentCategory;
+        });
     },
 });
