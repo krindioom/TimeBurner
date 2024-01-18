@@ -1,14 +1,22 @@
-import React from 'react'
-import MainStopwatch from './MainStopwatch';
-import MainStyle from '../styles/main.module.css'
+import React from "react";
+import MainStopwatch from "./MainStopwatch";
+import MainStyle from "../styles/main.module.css";
+import { Col, Row } from "antd";
 
 const Main = () => {
-  return (
-    
-    <div className={MainStyle.stopwatch_container}>
-        <MainStopwatch/>
-    </div>
-  )
-}
+    return (
+        <Row
+            align="middle"
+            justify="center"
+            style={{
+                height: "100vh",
+            }}
+        >
+            <Col>
+                <MainStopwatch />
+            </Col>
+        </Row>
+    );
+};
 
-export default Main
+export default Main;
