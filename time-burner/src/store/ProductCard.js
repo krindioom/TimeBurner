@@ -7,9 +7,19 @@ import { productsState } from "../recoil/atoms/ProductsState";
 import { boughtItemsState } from "../recoil/atoms/BoughtItemsState";
 
 const ProductCard = ({ id, title, price }) => {
-    const stopwatchValue = useRecoilValue(stopwatchState);
+    const [stopwatchValue, setStopwatchValue] = useRecoilState(stopwatchState);
     const setPurchasedItem = useSetRecoilState(boughtItemsState);
     const isAvaliable = stopwatchValue < price;
+
+    const handleSetStopwatchState = () => {
+        setStopwatchValue((curent) => {
+            if (curent - price < 0) {
+                return 0;
+            }
+
+            return curent - price;
+        });
+    };
 
     return (
         <Card
@@ -26,6 +36,7 @@ const ProductCard = ({ id, title, price }) => {
         >
             <Button
                 onClick={() => {
+                    handleSetStopwatchState();
                     setPurchasedItem((curent) => {
                         return [
                             ...curent,

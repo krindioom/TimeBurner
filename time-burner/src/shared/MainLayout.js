@@ -39,7 +39,7 @@ const MainLayout = () => {
             ],
         },
         {
-            label: "моё",
+            label: <Link to="usersItems">моё</Link>,
             key: "myItems",
         },
     ];
@@ -58,6 +58,7 @@ const MainLayout = () => {
             >
                 <Menu theme="dark" mode="horizontal" items={items} />
             </ConfigProvider>
+            
             <Outlet />
         </>
     );
