@@ -16,10 +16,10 @@ export const productsState = atom({
             price: 500,
         },
         {
-            id:2,
+            id: 2,
             category: "backgrounds",
             name: "bg-2",
             price: 300,
         },
-    ]
+    ],
 });

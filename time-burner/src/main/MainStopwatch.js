@@ -9,7 +9,7 @@ const MainStopwatch = () => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setStopwatchValue((current) => current + 1);
-        }, 1000);
+        }, 100);
 
         return () => clearInterval(intervalId);
     }, [setStopwatchValue]);
