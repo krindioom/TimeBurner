@@ -4,10 +4,11 @@ import React from "react";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { stopwatchState } from "../recoil/atoms/StopwatchState";
 import { productsState } from "../recoil/atoms/ProductsState";
+import { boughtItemsState } from "../recoil/atoms/BoughtItemsState";
 
-const ProductCard = ({id, title, price }) => {
+const ProductCard = ({ id, title, price }) => {
     const stopwatchValue = useRecoilValue(stopwatchState);
-    
+    const setPurchasedItem = useSetRecoilState(boughtItemsState);
     const isAvaliable = stopwatchValue < price;
 
     return (
@@ -23,7 +24,21 @@ const ProductCard = ({id, title, price }) => {
             hoverable
             title={title}
         >
-            <Button type="primary"  disabled={isAvaliable}>
+            <Button
+                onClick={() => {
+                    setPurchasedItem((curent) => {
+                        return [
+                            ...curent,
+                            {
+                                id: id,
+                                title: title,
+                            },
+                        ];
+                    });
+                }}
+                type="primary"
+                disabled={isAvaliable}
+            >
                 {price} sec
             </Button>
         </Card>
